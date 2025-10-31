@@ -14,7 +14,7 @@ import com.hbn.student.entity.Student;
 public class Main {
 
 	public static void main(String[] arg) {
-		Student s=new Student("vikas","sydgy@jfhuauh",23);
+		Student s=new Student();
 		
 //		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 //		Metadata meta= new MetadataSources(ssr).getMetadataBuilder().build();
@@ -26,7 +26,12 @@ public class Main {
 		
 		Session session=HibernateConfiguration.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		session.persist(s);
-		tx.commit();
+		
+//		s=session.get(Student.class, 2);
+		session.load(s, 3);
+		System.out.println(s);
+		
+//		session.persist(s);
+//		tx.commit();
 	}
 }
