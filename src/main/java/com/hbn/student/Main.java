@@ -28,7 +28,8 @@ public class Main {
 		Transaction tx = session.beginTransaction();
 		
 //		s=session.get(Student.class, 2);
-		session.load(s, 3);
+//		session.load(s, 3);
+		
 		System.out.println(s);
 		
 //		session.persist(s);
