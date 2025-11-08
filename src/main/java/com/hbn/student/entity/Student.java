@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.OneToOne;
 
 @Entity(name="stu")
 public class Student {
@@ -15,20 +15,19 @@ public class Student {
 	private String email;
 	private int age;
 	
-	@Transient
-	private String address;
+	@OneToOne
+	private Address address;
 	
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student( String name, String email, int age,String address) {
+	public Student( String name, String email, int age) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.age = age;
-		this.address=address;
 	}
 
 	public int getId() {
@@ -62,16 +61,19 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	public String getAddress() {
+
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
-		this.address=address;
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", age=" + age +"Add : "+address+ "]";
+		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", age=" + age + "]";
 	}
+	
+
 }
