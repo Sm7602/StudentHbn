@@ -17,7 +17,7 @@ public class HibernateConfiguration {
 		prop.put(Environment.JAKARTA_JDBC_URL,"jdbc:mysql://localhost:3306/univercity");
 		prop.put(Environment.JAKARTA_JDBC_USER, "root");
 		prop.put(Environment.JAKARTA_JDBC_PASSWORD, "souvik@7602");
-		prop.put(Environment.HBM2DDL_AUTO, "create");
+		prop.put(Environment.HBM2DDL_AUTO, "update");
 		prop.put(Environment.SHOW_SQL, "true");
 		prop.put(Environment.FORMAT_SQL, "true");
 		

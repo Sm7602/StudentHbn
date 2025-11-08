@@ -9,8 +9,8 @@ import com.hbn.student.entity.Student;
 public class Main {
 
 	public static void main(String[] arg) {
-		Student s=new Student("dhgfdh","@gah",25);
-		Address add=new Address("noida","up");
+		Student s=new Student("d","@gah",25);
+		Address add=new Address(" g noida","up");
 		
 		s.setAddress(add);
 		add.setStudent(s);
@@ -18,12 +18,17 @@ public class Main {
 		Session session=HibernateConfiguration.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		
-		session.persist(s);
-		session.persist(add);
-       	tx.commit();
+//		session.persist(s);
+//		session.persist(add);
+//       	tx.commit();
 		
-//		s=session.get(Student.class, 2);
-//		session.load(s, 3);
+//		session.load(s, 1);
+//		System.out.println(s);
+//		System.out.println(s.getAddress());
+		
+		session.load(add, 3);
+		System.out.println(add);
+		System.out.println(add.getStudent());
 		
 		
 	}
