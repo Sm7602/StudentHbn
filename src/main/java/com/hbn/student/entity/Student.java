@@ -1,13 +1,16 @@
 package com.hbn.student.entity;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 
-@Entity(name="stu")
+
+@Entity
 public class Student {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -16,8 +19,8 @@ public class Student {
 	private String email;
 	private int age;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Address address;
+	@OneToMany(mappedBy="student",cascade= CascadeType.ALL)
+	private List<Address> addresses;
 	
 	public Student() {
 		super();
@@ -63,12 +66,13 @@ public class Student {
 		this.age = age;
 	}
 
-	public Address getAddress() {
-		return address;
+
+	public List<Address> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
 	@Override
