@@ -33,9 +33,9 @@ public class Main {
 //		System.out.println(s);
 //		System.out.println(s.getAddresses());
 //		
-//		session.load(add, 3);
-//		System.out.println(add);
-//		System.out.println(add.getStudent());
+		session.load(add1, 1);
+		System.out.println(add1);
+		System.out.println(add1.getStudent());
 		
 		
 	}
