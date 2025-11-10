@@ -1,11 +1,11 @@
 package com.hbn.student.entity;
 
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Address {
@@ -14,8 +14,8 @@ public class Address {
 	private int id;
 	private String city;
 	private String state;
-	@ManyToOne
-	private Student student;
+	@ManyToMany 
+	private List<Student> studentes;
 	
 	public Address( String city, String state) {
 		super();
@@ -45,11 +45,11 @@ public class Address {
 		this.state = state;
 	}
 	
-	public Student getStudent() {
-		return student;
+	public List<Student> getStudentes() {
+		return studentes;
 	}
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setStudent(List<Student> studentes) {
+		this.studentes = studentes;
 	}
 	@Override
 	public String toString() {

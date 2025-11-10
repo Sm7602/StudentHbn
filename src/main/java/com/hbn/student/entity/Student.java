@@ -7,7 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
+
 
 
 @Entity
@@ -18,8 +19,8 @@ public class Student {
 	private String name;
 	private String email;
 	private int age;
-	
-	@OneToMany(mappedBy="student",cascade= CascadeType.ALL)
+	 
+	@ManyToMany (mappedBy="studentes",cascade= CascadeType.ALL)
 	private List<Address> addresses;
 	
 	public Student() {
